@@ -1,0 +1,13 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions: 
+      nodejs: 10 
+    commands:
+      - echo "[Install phase]"
+      # Install all dependencies (including dependencies for running tests)
+      - npm install && npm install standard --save-dev
+  build:
+    commands:
+      - echo "[Build phase]"
+      - npx standard

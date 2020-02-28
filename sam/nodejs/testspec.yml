@@ -1,0 +1,19 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions: 
+      nodejs: 10 
+    commands:
+      - echo "[Install phase]"
+      # Install all dependencies (including dependencies for running tests)
+      - npm install
+  build:
+    commands:
+      - echo "[Build phase]"
+      # Discover and run unit tests in the '__tests__' directory
+      - npm run test
+  post_build:
+    commands:
+      # Use Post Build for notifications, git tags and any further customization after build
+      - echo "[Post-Build phase]"
+      - echo "Tests completed on `date`"

@@ -1,0 +1,17 @@
+{
+  "name": "sample-app",
+  "description": "sample-app-description",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "aws-sdk": "^2.626.0",
+    "aws-xray-sdk-core": "^2.5.0"
+  },
+  "devDependencies": {
+    "jest": "^24.7.1",
+    "standard": "^14.3.1"
+  },
+  "scripts": {
+    "test": "jest"
+  }
+}

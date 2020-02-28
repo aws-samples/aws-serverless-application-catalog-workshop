@@ -1,0 +1,17 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions: 
+      nodejs: 10
+      python: 3.8
+    commands:
+      - echo "[Install phase]"
+      # Install all dependencies (including dependencies for running tests)
+      - virtualenv venv
+      - source venv/bin/activate
+      - pip3 install locust
+  build:
+    commands:
+      - echo "[Build phase]"
+      - echo ${ApiUrl}
+      - locust -f locust-script.py -H ${ApiUrl} --no-web -c 500 -r 100 -t 1m

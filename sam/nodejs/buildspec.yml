@@ -1,0 +1,34 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions: 
+      nodejs: 10 
+    commands:
+      - echo "[Install phase]"
+      # Install all dependencies (including dependencies for running tests)
+      - npm install
+      - pip install --upgrade awscli aws-sam-cli
+  pre_build:
+    commands:
+      - echo "[Pre-Build phase]"
+      # Use Pre-Build phase to run tests, install any code deps or any other customization before build
+      # Discover and run unit tests in the '__tests__' directory
+      # - npm run test # Tests covered in testspec.yml
+      # Remove all unit tests to reduce the size of the package that will be ultimately uploaded to Lambda
+      - rm -rf ./__tests__
+      # Remove all dependencies not needed for the Lambda deployment package (the packages from devDependencies in package.json)
+      - npm prune --production
+  build:
+    commands:
+      - echo "[Build phase]"
+      # Use AWS SAM to package the application by using AWS CloudFormation
+      - sam package --template template.yaml --s3-bucket $BUILD_OUTPUT_BUCKET --output-template-file packaged.yaml
+  post_build:
+    commands:
+      # Use Post Build for notifications, git tags and any further customization after build
+      - echo "[Post-Build phase]"
+      - echo "SAM packaging completed on `date`"
+artifacts:
+  type: zip
+  files:
+    - packaged.yaml

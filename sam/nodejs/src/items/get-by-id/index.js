@@ -36,7 +36,7 @@ exports.getByIdHandler = async (event) => {
     const item = data.Item
 
     response = {
-      statusCode: 200,
+      statusCode: item ? 200 : 404,
       headers: {
         'Access-Control-Allow-Origin': '*'
       },

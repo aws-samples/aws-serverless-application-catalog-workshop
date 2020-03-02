@@ -17,7 +17,7 @@ Parameters:
     Type: String
 
   CodeS3Bucket:
-    Description: S3 Bucket name and path where our bundled code resides e.g. MY-BUCKET-NAME/sam/nodejs
+    Description: S3 Bucket name and path where our bundled code resides e.g. MY-BUCKET-NAME
     Type: String
 
   #Runtime:
@@ -112,7 +112,7 @@ Resources:
         Type: AWS::CodeBuild::Project
         Properties:
             Name: !Sub ${ProjectName}-UnitTest
-            Description: !Sub 'Style Checker Build project for the ${ProjectName}'
+            Description: !Sub 'Unit Test Build project for the ${ProjectName}'
             Artifacts:
               Type: CODEPIPELINE
             Environment: 

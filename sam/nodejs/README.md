@@ -3,7 +3,6 @@
 This project contains source code and supporting files for a serverless application that you can deploy with the AWS Serverless Application Model (AWS SAM) command line interface (CLI). It includes the following files and folders:
 
 - `src` - Code for the application's Lambda function.
-- `events` - Invocation events that you can use to invoke the function.
 - `__tests__` - Unit tests for the application code. 
 - `template.yml` - A template that defines the application's AWS resources.
 
@@ -74,13 +73,13 @@ my-application$ sam build
 
 The AWS SAM CLI installs dependencies that are defined in `package.json`, creates a deployment package, and saves it in the `.aws-sam/build` folder.
 
-Test a single function by invoking it directly with a test event. An event is a JSON document that represents the input that the function receives from the event source. Test events are included in the `events` folder in this project.
+Test a single function by invoking it directly with a test event. An event is a JSON document that represents the input that the function receives from the event source.
 
 Run functions locally and invoke them with the `sam local invoke` command.
 
 ```bash
-my-application$ sam local invoke putItemFunction --event events/event-post-item.json
-my-application$ sam local invoke getAllItemsFunction --event events/event-get-all-items.json
+my-application$ sam local invoke putItemFunction --event event-post-item.json
+my-application$ sam local invoke getAllItemsFunction --event event-get-all-items.json
 ```
 
 The AWS SAM CLI can also emulate your application's API. Use the `sam local start-api` command to run the API locally on port 3000.

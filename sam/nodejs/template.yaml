@@ -24,11 +24,13 @@ Parameters:
 Conditions:
   CreateProdResources: !Equals [!Ref Stage, Prod]
 
+# Read more about Global variables here!!
+# https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#globals-section
 Globals:
   Function:
     Tracing: Active
-    MemorySize: 128
-    Timeout: 10
+    MemorySize: 1024
+    Timeout: 60
     Runtime: nodejs12.x
     # Read more about Deployment Preferences and Safe Deployments here!!
     # https://github.com/awslabs/serverless-application-model/blob/master/docs/safe_lambda_deployments.rst

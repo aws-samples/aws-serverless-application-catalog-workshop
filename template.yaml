@@ -17,7 +17,7 @@ Parameters:
     Type: String
 
   CodeS3Bucket:
-    Description: S3 Bucket name and path where our bundled code resides e.g. MY-BUCKET-NAME
+    Description: S3 Bucket name and path where our bundled code resides e.g. MY-BUCKET-NAME/sam/nodejs
     Type: String
 
   #Runtime:

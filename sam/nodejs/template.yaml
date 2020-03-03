@@ -24,11 +24,14 @@ Parameters:
 Conditions:
   CreateProdResources: !Equals [!Ref Stage, Prod]
 
+# Read more about Global variables here!!
+# https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#globals-section
 Globals:
   Function:
-    Timeout: 5
     Tracing: Active
     MemorySize: 1024
+    Timeout: 60
+    Runtime: nodejs12.x
     # Read more about Deployment Preferences and Safe Deployments here!!
     # https://github.com/awslabs/serverless-application-model/blob/master/docs/safe_lambda_deployments.rst
     AutoPublishAlias: live
@@ -40,6 +43,7 @@ Globals:
         # Enable usage of KeepAlive to reduce overhead of short-lived actions, like DynamoDB queries
         AWS_NODEJS_CONNECTION_REUSE_ENABLED: 1
   Api:
+    OpenApiVersion: 3.0.1
     TracingEnabled: true
     Cors:
       AllowMethods: "'OPTIONS,POST,GET'"
@@ -53,7 +57,7 @@ Resources:
     Type: AWS::Serverless::Api
     Properties:
       Name: !Sub ${ProjectName}-${Stage}
-      StageName: Prod
+      StageName: !Sub ${Stage}
       # AccessLogSetting:
       #   - DestinationArn: !Sub "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group/custom_log_group_name"
       #     Format: "$context.identity.sourceIp $context.identity.caller $context.identity.user [$context.requestTime] "$context.httpMethod $context.resourcePath $context.protocol" $context.status $context.responseLength $context.requestId"
@@ -73,9 +77,6 @@ Resources:
     Properties:
       CodeUri: ./ # Defined where package.json file must reside for "sam build" to complete
       Handler: src/items/get-all-items/index.getAllItemsHandler
-      Runtime: nodejs10.x
-      MemorySize: 128
-      Timeout: 100
       Description: A simple example includes a HTTP get method to get all items from a DynamoDB table.
       Policies:
         # Give Create/Read/Update/Delete Permissions to the SampleTable
@@ -98,9 +99,6 @@ Resources:
     Properties:
       CodeUri: ./
       Handler: src/items/get-by-id/index.getByIdHandler
-      Runtime: nodejs10.x
-      MemorySize: 128
-      Timeout: 100
       Description: A simple example includes a HTTP get method to get one item by id from a DynamoDB table.
       Policies:
         - DynamoDBCrudPolicy:
@@ -122,9 +120,6 @@ Resources:
     Properties:
       CodeUri: ./
       Handler: src/items/put-item/index.putItemHandler
-      Runtime: nodejs10.x
-      MemorySize: 128
-      Timeout: 100
       Description: A simple example includes a HTTP post method to add one item to a DynamoDB table.
       Policies:
         - DynamoDBCrudPolicy:
@@ -150,12 +145,12 @@ Resources:
       KeySchema: 
         - AttributeName: id
           KeyType: HASH
-      TableName: !Sub sample-${ProjectName}-${Stage}
+      TableName: !Sub sampleTable-${ProjectName}-${Stage}
 
 Outputs:
   ApiUrl:
-    Description: "API Gateway endpoint URL for Prod stage"
-    Value: !Sub "https://${Api}.execute-api.${AWS::Region}.amazonaws.com/Prod/"
+    Description: "API Gateway endpoint URL for ${Stage} stage"
+    Value: !Sub "https://${Api}.execute-api.${AWS::Region}.amazonaws.com/${Stage}/"
 
   SampleTable:
     Value: !GetAtt SampleTable.Arn

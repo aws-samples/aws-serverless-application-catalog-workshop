@@ -112,7 +112,7 @@ Resources:
         Type: AWS::CodeBuild::Project
         Properties:
             Name: !Sub ${ProjectName}-UnitTest
-            Description: !Sub 'Style Checker Build project for the ${ProjectName}'
+            Description: !Sub 'Unit Test Build project for the ${ProjectName}'
             Artifacts:
               Type: CODEPIPELINE
             Environment: 

@@ -14,4 +14,4 @@ phases:
     commands:
       - echo "[Build phase]"
       - echo ${ApiUrl}
-      - locust -f locust-script.py -H ${ApiUrl} --no-web -c 500 -r 100 -t 1m
+      - locust -f locust-script.py -H ${ApiUrl} --headless -u 500 -r 100 -t 1m

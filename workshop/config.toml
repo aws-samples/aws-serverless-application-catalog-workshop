@@ -1,0 +1,96 @@
+RelativeURLs=true
+CanonifyURLs=true
+languageCode = "en-US"
+defaultContentLanguage = "en"
+baseURL = "https://application-catalog.serverlessworkshops.io/"
+
+title = "AWS Serverless Application Catalog Workshop"
+theme = "learn"
+metaDataFormat = "yaml"
+defaultContentLanguageInSubdir= true
+
+uglyurls = false
+sectionPagesMenu = "main"
+
+enableEmoji = true
+
+[params]
+#  editURL = "https://github.com/aws-samples/aws-serverless-application-catalog-workshop/edit/master/content/"
+  editURL = "#"
+  description = "AWS Serverless Application Catalog Workshop"
+  author = "Enrico Bergamo"
+  disableBreadcrumb = false
+  disableNextPrev = false
+  themeVariant = "mine"
+  disableSearch = false
+  disableAssetsBusting = true
+  disableLanguageSwitchingButton = true
+  disableShortcutsTitle = false
+  disableInlineCopyToClipBoard = true
+  pygmentsUseClasses = true
+  pygmentsCodefencesGuessSyntax = true
+  pygmentsCodeFences = true
+  pygmentsStyle = "monokai"
+
+[outputs]
+home = [ "HTML", "RSS", "JSON"]
+
+[blackfriday]
+plainIDAnchors = true
+hrefTargetBlank = true
+
+#[Languages]
+#[Languages.en]
+#title = "AWS Serverless Application Catalog Workshop"
+#weight = 1
+#languageName = "English"
+
+#[Languages.es]
+#title = "AWS Serverless Application Catalog Workshop"
+#weight = 2
+#languageName = "Español"
+
+#[Languages.pt]
+#title = "AWS Serverless Application Catalog Workshop"
+#weight = 3
+#languageName = "Português"
+
+#
+
+[menu]
+  [[menu.main]]
+    identifier = "Prerequisites"
+    name = "This is the Mu track"
+    title = "Workshop using Mu"
+    url = "/mu/"
+    weight = -110
+
+[[menu.shortcuts]]
+name = "<i class='fas fa-tags'></i> Tags"
+url = "/tags"
+weight = 1
+
+[[menu.shortcuts]]
+name = "<i class='fas fa-bookmark'></i> More Resources"
+url = "/more_resources"
+weight = 2
+
+[[menu.shortcuts]]
+name = "<i class='fas fa-users'></i> Authors"
+url = "/authors"
+weight = 3
+
+[[menu.shortcuts]]
+name = "<i class='fab fa-github'></i> GitHub Project"
+url = "https://github.com/aws-samples/aws-serverless-application-catalog-workshop"
+weight = 4
+
+[[menu.shortcuts]]
+name = "<i class='fas fa-envelope'></i> Issues / Questions?"
+url = "https://github.com/aws-samples/aws-serverless-application-catalog-workshop/issues"
+weight = 5
+
+[[menu.shortcuts]]
+name = "<i class='fas fa-poll'></i> Feedback Survey"
+url = "https://pt.surveymonkey.com/r/XFMT2JC"
+weight = 6

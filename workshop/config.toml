@@ -2,7 +2,7 @@ RelativeURLs=true
 CanonifyURLs=true
 languageCode = "en-US"
 defaultContentLanguage = "en"
-baseURL = "https://application-catalog.serverlessworkshops.io/"
+baseURL = "https://application-catalog.workshop.aws/"
 
 title = "AWS Serverless Application Catalog Workshop"
 theme = "learn"

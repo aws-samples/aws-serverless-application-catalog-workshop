@@ -25,13 +25,13 @@ Enter the following settings when prompted:
         Parameter ProjectName []: backend-demo
         Parameter Stage []: Dev
         #Shows you resources changes to be deployed and require a 'Y' to initiate deploy
-        Confirm changes before deploy [y/N]: y
+        Confirm changes before deploy [y/N]: n
         #SAM needs permission to be able to create roles to connect to the resources in your template
         Allow SAM CLI IAM role creation [Y/n]: y
         getAllItemsFunction may not have authorization defined, Is this okay? [y/N]: y
         getByIdFunction may not have authorization defined, Is this okay? [y/N]: y
         putItemFunction may not have authorization defined, Is this okay? [y/N]: y
-        Save arguments to configuration file [Y/n]: n
+        Save arguments to configuration file [Y/n]: y
 ```
 
 Wait for a few minutes and then enter the following when prompted again:

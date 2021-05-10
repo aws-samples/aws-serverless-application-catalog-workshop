@@ -4,6 +4,11 @@ weight = 36
 +++
 
 #### Export the stack output variables
+First we will install jq into our AWS Cloud9 environment. Jq is a lightweight and flexible command-line JSON processor.
+```sh
+sudo yum install jq
+```
+
 
 To invoke our API's, we first need to fetch the `ApiUrl` output variable that our CloudFormation stack gives us. So let us iterate through our stack and export all output variables as environment variables:
 

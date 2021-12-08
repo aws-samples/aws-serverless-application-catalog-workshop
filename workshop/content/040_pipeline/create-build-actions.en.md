@@ -28,7 +28,7 @@ Open your [recently created pipeline](https://console.aws.amazon.com/codesuite/c
 - Select **Standard** as **Runtime(s)**
 - Select **aws/codebuild/amazonlinux2-x86-64-standard:2.0** as **Image**
 - For **Service role**, choose **Existing service role**
-- Browse for **service-catalog-wksp-build-role** under **Role ARN**
+- Browse for **serverless-catalog-wksp-build-role** under **Role ARN**
 - Uncheck the **Allow AWS CodeBuild to modify this service role so it can be used with this build project** box
 - In the **Buildspec** section, type **testspec.yml** in the ***Buildspec name - optional*** textbox.
 - Leave all other settings as default, click **Continue to CodePipeline**

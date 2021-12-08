@@ -47,7 +47,7 @@ weight = 48
 
 Now that we have configured the Dev stage, let's configure a Prod stage to allow multi-environment deployments. First create an action to generate a Change Set in AWS CloudFormation just like in the previous stage.
 
-- Click **Add stage** below the Build section we just edited.
+- Click **Add stage** below the Dev section we just edited.
 - Name it **Prod**, click **Add stage**
 - Click **Add action group**
 - Name it **CreateChangeSet**

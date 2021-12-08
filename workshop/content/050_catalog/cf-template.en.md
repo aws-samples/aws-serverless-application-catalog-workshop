@@ -9,7 +9,7 @@ weight: 53
 ```sh
 mkdir ~/environment/cf-template
 cd ~/environment/cf-template
-sudo curl --location -o ./template.yaml https://raw.githubusercontent.com/aws-samples/aws-serverless-application-catalog-workshop/master/code/template.yaml
+sudo curl --location -o ./template.yaml https://raw.githubusercontent.com/aws-samples/aws-serverless-application-catalog-workshop/master/template.yaml
 ```
 
 {{% notice tip %}}
